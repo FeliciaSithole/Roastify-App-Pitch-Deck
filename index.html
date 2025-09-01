@@ -3,483 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roastify - Pitch Deck</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2c1810, #4a2c17);
-            color: white;
-            overflow-x: hidden;
-        }
-
-        .slide-container {
-            width: 100%;
-            height: 100vh;
-            display: none;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .slide-container.active {
-            display: flex;
-        }
-
-        .slide {
-            max-width: 1200px;
-            width: 100%;
-            text-align: center;
-            animation: slideIn 0.6s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: #ff6b35;
-        }
-
-        h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #f7931e;
-        }
-
-        p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .logo {
-            font-size: 6rem;
-            margin-bottom: 1rem;
-        }
-
-        .tagline {
-            font-size: 1.8rem;
-            color: #cccccc;
-            font-style: italic;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ff6b35;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: left;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            padding: 12px 24px;
-            background: rgba(255, 107, 53, 0.8);
-            border: none;
-            border-radius: 25px;
-            color: white;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 107, 53, 1);
-            transform: scale(1.05);
-        }
-
-        .slide-counter {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 20px;
-            z-index: 1000;
-        }
-
-        .timeline {
-            display: flex;
-            justify-content: space-around;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .timeline-item {
-            text-align: center;
-            max-width: 200px;
-        }
-
-        .timeline-date {
-            font-size: 1.5rem;
-            color: #ff6b35;
-            font-weight: bold;
-        }
-
-        .problem-highlight {
-            background: rgba(255, 0, 0, 0.1);
-            border-left: 4px solid #ff6b35;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        .solution-highlight {
-            background: rgba(0, 255, 0, 0.1);
-            border-left: 4px solid #4CAF50;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .slide-container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .logo {
-                font-size: 4rem;
-            }
-        }
-    </style>
+    <title>ROASTIFY - Brutal Pitch Deck</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
     </div>
 
     <!-- Slide 1: Title -->
     <div class="slide-container active">
-        <div class="slide">
-            <div class="logo">🔥☕</div>
-            <h1>ROASTIFY</h1>
-            <p class="tagline">Perfecting Every Roast, One Bean at a Time</p>
-            <p>The ultimate coffee roasting companion app for enthusiasts and professionals</p>
+        <div class="slide-content">
+            <div class="glitch-text">ROASTIFY</div>
+            <div class="subtitle">🔥💀 GET ROASTED INTO PRODUCTIVITY 💀🔥</div>
+            <div class="tagline">The brutal motivation app that shames you into success</div>
+            <div style="margin-top: 3rem; color: #a855f7; font-size: 1.1rem;">
+                <p><strong>Felicia Sithole</strong> - Founder & CEO</p>
+                <p>Destroying procrastination since 2025</p>
+            </div>
         </div>
     </div>
 
     <!-- Slide 2: Problem -->
     <div class="slide-container">
-        <div class="slide">
-            <h2>The Problem</h2>
-            <div class="problem-highlight">
-                <h3>Coffee roasting is complex and inconsistent</h3>
-                <p>• 70% of home roasters struggle with achieving consistent results</p>
-                <p>• Limited tools for tracking roasting parameters and outcomes</p>
-                <p>• Lack of community knowledge sharing and learning resources</p>
-                <p>• Expensive equipment with poor user interfaces</p>
+        <div class="slide-content">
+            <div class="slide-title">THE PROBLEM</div>
+            <div class="subtitle" style="color: #ef4444; margin-bottom: 3rem;">Nice Motivation Doesn't Work</div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">67%</div>
+                    <div class="list-item">Users quit productivity apps within 2 weeks</div>
+                </div>
+                <div class="problem-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">😴</div>
+                    <div class="list-item">Gentle reminders get completely ignored</div>
+                </div>
+                <div class="problem-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤷</div>
+                    <div class="list-item">No real accountability or consequences</div>
+                </div>
+                <div class="problem-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💤</div>
+                    <div class="list-item">Boring interfaces don't engage Gen Z</div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Slide 3: Solution -->
     <div class="slide-container">
-        <div class="slide">
-            <h2>Our Solution</h2>
-            <div class="solution-highlight">
-                <h3>Roastify: Your Digital Roasting Assistant</h3>
-                <p>A comprehensive mobile app that guides users through every step of the coffee roasting process, from bean selection to the perfect cup.</p>
-            </div>
-            <p>We're making professional-quality coffee roasting accessible to everyone.</p>
-        </div>
-    </div>
-
-    <!-- Slide 4: Market Opportunity -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Market Opportunity</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">$45B</div>
-                    <p>Global coffee market size</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">31%</div>
-                    <p>Specialty coffee market growth</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">2.5M</div>
-                    <p>Home coffee roasters worldwide</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$200</div>
-                    <p>Average spend on roasting equipment</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 5: Product Features -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Key Features</h2>
+        <div class="slide-content">
+            <div class="slide-title">OUR SOLUTION</div>
+            <div class="subtitle" style="color: #00ff41; margin-bottom: 3rem;">Toxic Motivation That Actually Works</div>
+            
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>Smart Timer</h3>
-                    <p>Precision timing with temperature tracking and automated alerts</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⏰</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">BRUTAL TIMER</h3>
+                    <p>Progressive roasts every 5 minutes during work sessions</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Profile Management</h3>
-                    <p>Save, organize, and replicate successful roasting profiles</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📋</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">SHAME TRACKER</h3>
+                    <p>Task management with brutal feedback system</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Real-time Monitoring</h3>
-                    <p>Track temperature, time, and roast development in real-time</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎮</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">GAMING UI</h3>
+                    <p>Cyberpunk aesthetics + meme culture engagement</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Community Sharing</h3>
-                    <p>Share profiles and learn from expert roasters worldwide</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">HALL OF SHAME</h3>
+                    <p>Achievement system for your epic failures</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 6: Business Model -->
+    <!-- Slide 4: Market -->
     <div class="slide-container">
-        <div class="slide">
-            <h2>Business Model</h2>
+        <div class="slide-content">
+            <div class="slide-title">MARKET OPPORTUNITY</div>
+            <div class="subtitle" style="margin-bottom: 3rem;">The Numbers Don't Lie (Unlike Your Excuses)</div>
+            
+            <div class="stat-container">
+                <div class="stat-card">
+                    <div class="stat-number">$58B</div>
+                    <div class="stat-label">Productivity App Market by 2027</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">340%</div>
+                    <div class="stat-label">Gaming Aesthetic App Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2.5B</div>
+                    <div class="stat-label">Gen Z Potential Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$5B+</div>
+                    <div class="stat-label">Meme Economy Engagement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Product Demo -->
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="slide-title">PRODUCT DEMO</div>
+            <div class="subtitle" style="margin-bottom: 2rem;">Experience the Brutality</div>
+            
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div class="app-screenshot">
+                    <div style="color: #ef4444; font-size: 1.5rem; margin-bottom: 2rem;">GRIND SESSION</div>
+                    <div style="font-size: 4rem; color: #00ff41;">25:00</div>
+                    <div style="color: #a855f7; margin-top: 2rem; font-size: 1rem;">
+                        "Stop being useless and<br>START GRINDING!"
+                    </div>
+                </div>
+                
+                <div class="app-screenshot">
+                    <div style="color: #ef4444; font-size: 1.5rem; margin-bottom: 2rem;">MISSION CONTROL</div>
+                    <div style="color: #00ff41; font-size: 1rem; text-align: left;">
+                        <div>✓ Finish that project</div>
+                        <div>✗ Study for 2 hours</div>
+                        <div>✗ Clean workspace</div>
+                    </div>
+                    <div style="color: #a855f7; margin-top: 2rem; font-size: 0.9rem;">
+                        "1/3 complete?<br>Pathetic."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Traction -->
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="slide-title">TRACTION</div>
+            <div class="subtitle" style="margin-bottom: 3rem;">People Love Being Roasted</div>
+            
+            <div class="stat-container">
+                <div class="stat-card">
+                    <div class="stat-number">15K</div>
+                    <div class="stat-label">Beta Users in First Month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">App Store Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="stat-label">Daily Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2.3x</div>
+                    <div class="stat-label">Viral Coefficient</div>
+                </div>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">USER TESTIMONIALS.exe</div>
+                <div class="terminal-content">
+                    >> "This app literally bullied me into finishing my dissertation." - Sarah, 23<br>
+                    >> "Finally, an app that matches my self-hatred energy." - Mike, 28<br>
+                    >> "I hate it. I love it. I'm productive now???" - Alex, 25
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Business Model -->
+    <div class="slide-container">
+        <div class="slide-content">
+            <div class="slide-title">BUSINESS MODEL</div>
+            <div class="subtitle" style="margin-bottom: 3rem;">How We Monetize Your Failures</div>
+            
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h3>Freemium Model</h3>
-                    <p>Basic features free, premium features $9.99/month</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💸</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">FREEMIUM</h3>
+                    <p>Basic roasts free<br>Premium brutality R90/month</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Equipment Partnerships</h3>
-                    <p>Commission on roasting equipment sales through app</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">PREMIUM FEATURES</h3>
+                    <p>Custom roasts, brutal notifications,<br>exclusive shame badges</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Bean Marketplace</h3>
-                    <p>Curated green bean sales with 15% commission</p>
-                </div>
-            </div>
-            <p><strong>Projected Revenue:</strong> $2.4M by Year 2</p>
-        </div>
-    </div>
-
-    <!-- Slide 7: Competition -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Competitive Advantage</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>User Experience</h3>
-                    <p>Intuitive design focused on mobile-first experience</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Community</h3>
-                    <p>Built-in social features and expert guidance</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Integration</h3>
-                    <p>Works with existing equipment, no hardware required</p>
-                </div>
-                <div class="stat-card">
-                    <h3>AI-Powered</h3>
-                    <p>Machine learning recommendations for better roasts</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 8: Traction -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Current Traction</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">10K</div>
-                    <p>Beta users in 3 months</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.8★</div>
-                    <p>App store rating</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">85%</div>
-                    <p>Monthly retention rate</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">25%</div>
-                    <p>Conversion to premium</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 9: Roadmap -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Product Roadmap</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Q1 2025</div>
-                    <p>iOS launch & premium features</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Q2 2025</div>
-                    <p>AI recommendations & marketplace</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Q3 2025</div>
-                    <p>Hardware integrations</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Q4 2025</div>
-                    <p>International expansion</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 10: Team -->
-    <div class="slide-container">
-        <div class="slide">
-            <h2>Meet The Team</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">👩‍💻</div>
-                    <h3>Felicia Sithole</h3>
-                    <p>Founder & CEO<br>5+ years mobile development<br>Coffee enthusiast</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👕</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">MERCHANDISE</h3>
+                    <p>"Productivity Failure"<br>branded items</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">👨‍🔬</div>
-                    <h3>Technical Team</h3>
-                    <p>Experienced developers<br>Coffee industry experts<br>UI/UX specialists</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Advisory Board</h3>
-                    <p>Industry veterans<br>Coffee roasting experts<br>Business mentors</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                    <h3 style="color: #00ff41; margin-bottom: 1rem;">PROJECTION</h3>
+                    <p><strong>R228M ARR</strong><br>by Year 2</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 11: Funding -->
+    <!-- Slide 8: Investment Ask -->
     <div class="slide-container">
-        <div class="slide">
-            <h2>Investment Opportunity</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">$500K</div>
-                    <p>Seeking seed funding</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">18 months</div>
-                    <p>Runway to profitability</p>
+        <div class="slide-content">
+            <div class="glitch-text" style="font-size: 3rem;">FUND THE BRUTALITY</div>
+            <div class="subtitle" style="margin-bottom: 3rem;">Ready to Invest in Some Brutal Honesty?</div>
+            
+            <div class="terminal-window" style="max-width: 900px;">
+                <div class="terminal-header">INVESTMENT_REQUEST.exe</div>
+                <div class="terminal-content" style="font-size: 1.2rem;">
+                    >> SEEKING: <span style="color: #ef4444; font-size: 2rem; font-weight: bold;">$750K SEED ROUND</span><br><br>
+                    >> USE OF FUNDS:<br>
+                    &nbsp;&nbsp;&nbsp;[50%] Product development & AI roasting engine<br>
+                    &nbsp;&nbsp;&nbsp;[30%] Marketing & user acquisition<br>
+                    &nbsp;&nbsp;&nbsp;[20%] Team expansion & operations<br><br>
+                    >> CONTACT: <span style="color: #a855f7;">felicia@roastify.app</span><br>
+                    >> GITHUB: <span style="color: #a855f7;">github.com/FeliciaSithole/ROASTIFY-App</span>
                 </div>
             </div>
-            <p><strong>Use of funds:</strong></p>
-            <p>• 40% Product development & AI features</p>
-            <p>• 30% Marketing & user acquisition</p>
-            <p>• 20% Team expansion</p>
-            <p>• 10% Operations & partnerships</p>
-        </div>
-    </div>
 
-    <!-- Slide 12: Thank You -->
-    <div class="slide-container">
-        <div class="slide">
-            <div class="logo">🔥☕</div>
-            <h1>Thank You</h1>
-            <p>Ready to brew the future of coffee roasting?</p>
-            <br>
-            <p><strong>Contact:</strong></p>
-            <p>felicia@roastify.app</p>
-            <p>github.com/FeliciaSithole/ROASTIFY-App</p>
-            <br>
-            <p class="tagline">Let's perfect every roast together</p>
+            <button class="cta-button">LET'S DESTROY PROCRASTINATION TOGETHER</button>
+            
+            <div style="color: #ef4444; font-size: 1.2rem; font-weight: bold; margin-top: 2rem;">
+                "Your portfolio's productivity is about to get a serious upgrade."
+            </div>
         </div>
     </div>
 
     <div class="navigation">
-        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
-        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+        <button class="nav-btn" onclick="previousSlide()">← PREV</button>
+        <button class="nav-btn" onclick="nextSlide()">NEXT →</button>
     </div>
 
     <script>
@@ -515,7 +271,8 @@
             }
         });
 
-        
+        // Auto-advance (optional)
+        // setInterval(nextSlide, 15000);
     </script>
 </body>
 </html>
